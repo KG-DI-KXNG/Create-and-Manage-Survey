@@ -85,6 +85,7 @@ class surveyController extends Controller
             return redirect()->route('survey.testing');
         }
 
+        dd($request);
         $survey = amberSurvey::where('id','=',$request->surveyId)->first();
         $count = count($request->request->all());
         $answers = [];

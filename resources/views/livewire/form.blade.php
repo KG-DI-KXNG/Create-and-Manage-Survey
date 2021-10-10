@@ -15,8 +15,9 @@
             Question:{{ $i+1 }}
             <fieldset>
               <legend class="text-base font-medium text-gray-700"><input wire:model="question.{{$i}}" class="w-72" placeholder="What would you like to see improved?"></legend>
-              <p class="text-sm text-gray-500">Check all that apply in 
-                <select name="" id="" wire:model="type.{{$i}}" >
+              <p class="text-sm text-gray-500">Select the type of question: 
+                <select name="" id="" wire:model="type.{{$i}}" required >
+                  <option selected>--Select Option --</option>
                   <option value="sa">Short Answer</option>
                   <option value="tf">True Or False</option>
                   <option value="mc">Multiple Choices</option>
@@ -51,25 +52,12 @@
                 
                 @endif
                 @if ($type[$i] === "tf")
-
-{{--              
-                    <input id="tf" name="tf" type="radio" value="true"
-                      class="h-4 w-4 border-gray-300 rounded">
-                  
-                    <label for="tf" class="font-medium text-gray-700">Front-end</label>
-                    <p class="text-gray-500">Things like HTML, CSS, JS or React</p>
-                  
-               
-                    <input id="tf" name="tf" type="radio" value="false"
-                      class="h-4 w-4 border-gray-300 rounded">
-            
-                    <label for="tf" class="font-medium text-gray-700">Back-end</label>
-                    <p class="text-gray-500">APIs and Microservices with NodeJS, Express</p> --}}
-                  
-                {{$type[$i]}}
-                <input name="{{$type[$i].$i}}" type="radio">
-                <input name="{{$type[$i].$i}}" type="radio">
-
+                  <input name="{{$type[$i].$i}}" id="{{$type[$i].$i}}" value="true" type="radio" wire:model="options.{{$i}}.1.value">
+                      <label for="{{$type[$i].$i}}" class="font-medium text-gray-700">True</label>
+                      <br>
+                      <input name="{{$type[$i].$i}}" id="{{$type[$i].$i}}" value="false" type="radio" wire:model="options.{{$i}}.1.value">
+                      <label for="{{$type[$i].$i}}" class="font-medium text-gray-700">False</label>
+                      <br>
                 @endif
                 
               </div>

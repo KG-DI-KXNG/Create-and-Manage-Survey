@@ -15,6 +15,19 @@ class Form extends Component
     public $question = [];
     public $answers = [];
     public $options = [];
+    protected $val;
+    
+
+    // protected $rules = $this->validateType();
+
+
+    public function validateType(){
+
+        for($i=0;$i<$this->sectionNo;$i++){
+            $val =  ["type[".$i."]" => 'required'];
+         }
+        return $val;
+    }
     
 
     public function mount($No, $Name)
@@ -27,11 +40,7 @@ class Form extends Component
         // dd($this->type[1]);
         
     }
-
-    // protected $rules[
-    //     ''
-    // ]
-
+    
     public function addQuestion(array $n){
          array_push($this->question, $n);
     }
@@ -49,7 +58,7 @@ class Form extends Component
     public function submit(Request $request){
         
        
-        // dd($this->options[$i][1]['value']);
+        // dd($this->options);
         // $this->validate();
         
         $survey = amberSurvey::create(
@@ -67,6 +76,17 @@ class Form extends Component
                     'options' => [$this->options[$i][1]['value'], $this->options[$i][2]['value'],$this->options[$i][3]['value'],$this->options[$i][4]['value']]
                 ]);
 
+            }elseif($this->type[$i] == "tf"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    'type' => 'radio',
+                    'options' => ['true', 'false']
+                ]);
+            }elseif($this->type[$i] == "sa"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    
+                ]);
             }
    
         }

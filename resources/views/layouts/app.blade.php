@@ -24,7 +24,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -46,6 +46,7 @@
             <button class="js-change-theme focus:outline-none">🌙</button>
           </div>
     </body>
+    @livewireScripts
     <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
     <script src="https://unpkg.com/tippy.js@4"></script>
     <script>
@@ -90,4 +91,5 @@
         });
         
     </script>
+
 </html>

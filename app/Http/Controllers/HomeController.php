@@ -25,5 +25,10 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function show(Request $request){
+        $survey = $request->toArray();
+        return view('Survey.createForm')->with(\compact('survey'));
+    }
   
 }

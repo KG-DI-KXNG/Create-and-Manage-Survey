@@ -1,12 +1,12 @@
 <form wire:submit.prevent="submit">
     @csrf
     {{-- <input hidden name="surveyId" value="{{ $survey->id }}"> --}}
-    <div class="card">
-        <div class="card-header bg-white p-4">
-            <h2 class="mb-0">
-                <label for="">Survey Name: {{$surveyName}}</label> 
-            </h2>
-        </div>
+    <div class="card items-center justify-content-center bg-white shadow-md p-4">
+      <div class="card-header items-center justify-content-center bg-white p-4 ">
+          <h1 class="mb-0">
+              <label class="text-black " for="">Survey Name: {{$surveyName}}</label> 
+          </h1>
+      </div>
      
        
         @for ($i=0;$i<$sectionNo;$i++)

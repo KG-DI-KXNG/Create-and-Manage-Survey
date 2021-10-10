@@ -1,10 +1,10 @@
 <form wire:submit.prevent="submit">
     @csrf
     {{-- <input hidden name="surveyId" value="{{ $survey->id }}"> --}}
-    <div class="card items-center justify-content-center bg-white shadow-md p-4">
-      <div class="card-header items-center justify-content-center bg-white p-4 ">
+    <div class="card grid justify-items-center bg-white shadow-md p-4 m-20">
+      <div class="card-header flex justify-center bg-white p-4 ">
           <h1 class="mb-0">
-              <label class="text-black " for="">Survey Name: {{$surveyName}}</label> 
+              <label class="text-black text-center text-green-400 " for="">Survey Name: {{$surveyName}}</label> 
           </h1>
       </div>
      
@@ -79,7 +79,7 @@
 
         @endfor
 
-                <button wire:submit="submit" >Submit</button>
+                <button class="text-center" wire:submit="submit" >Submit</button>
             
     </div>
 </form>

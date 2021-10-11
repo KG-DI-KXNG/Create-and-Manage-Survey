@@ -31,3 +31,8 @@ Route::post('surveystore', [App\Http\Controllers\surveyController::class, 'store
 
 // Route::view('live', 'Survey.createForm');
 require __DIR__.'/auth.php';
+
+//Templates Routes
+Route::get('/Templates', [App\Http\Controllers\Templates::class,'TempOptions'])->name('TempOptions');
+Route::post('/selectTemplates', [App\Http\Controllers\Templates::class,'selectTemplates'])->name('selectTemplates');
+Route::post('/storeTemplateChoice', [App\Http\Controllers\Templates::class,'storeUserTemplate'])->name('storeUserTemplate');

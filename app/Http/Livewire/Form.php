@@ -11,27 +11,54 @@ class Form extends Component
 {
     public $surveyName;
     public $sectionNo;
-    public $type;
+    public $type =[];
     public $question = [];
+    public $answers = [];
+    public $options = [];
+    protected $val;
+    
+
+    // protected $rules = $this->validateType();
+
+
+    public function validateType(){
+
+        for($i=0;$i<$this->sectionNo;$i++){
+            $val =  ["type[".$i."]" => 'required'];
+         }
+        return $val;
+    }
     
 
     public function mount($No, $Name)
     {
         $this->sectionNo = $No;
         $this->surveyName = $Name;
+        for($i=0;$i<$No;$i++){
+            $this->type[$i] = null;
+        }
+        // dd($this->type[1]);
+        
     }
-
-    // protected $rules[
-    //     ''
-    // ]
-
+    
     public function addQuestion(array $n){
          array_push($this->question, $n);
     }
 
+    // public function setType($value){
+    //     array_push($this->type, $value);
+    //     dd($this->type);
+    // }
+
+    public function updatedType($value, $key){
+        $this->type[$key] = $value;
+        // dd($this->type);
+    }
+
     public function submit(Request $request){
         
-        // dd($this->question);
+       
+        // dd($this->options);
         // $this->validate();
         
         $survey = amberSurvey::create(
@@ -42,12 +69,25 @@ class Form extends Component
         );
 
         for($i=0;$i<$this->sectionNo;$i++){
-    
-            $survey->questions()->create([
-                'content' => $this->question[$i],
-                'type' => 'number',
-                'rules' => ['numeric', 'min:0']
-            ]);
+            if($this->type[$i] == "mc"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    'type' => 'radio',
+                    'options' => [$this->options[$i][1]['value'], $this->options[$i][2]['value'],$this->options[$i][3]['value'],$this->options[$i][4]['value']]
+                ]);
+
+            }elseif($this->type[$i] == "tf"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    'type' => 'radio',
+                    'options' => ['true', 'false']
+                ]);
+            }elseif($this->type[$i] == "sa"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    
+                ]);
+            }
    
         }
         return redirect()->route('dashboard');
@@ -56,6 +96,7 @@ class Form extends Component
 
     public function render()
     {
+        // dd($this->type);
         return view('livewire.form');
     }
 

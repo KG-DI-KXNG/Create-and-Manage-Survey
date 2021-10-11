@@ -51,7 +51,8 @@ class surveyController extends Controller
         $survey = amberSurvey::create(
             [
                 'name' => 'Test Survey 2',
-                'settings' => ['limit-per-participant' => 10]
+                'settings' => ['limit-per-participant' => 10],
+                'user_id'=>Auth::id(),
             ]
         );
 

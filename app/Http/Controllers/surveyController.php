@@ -44,7 +44,7 @@ class surveyController extends Controller
 
 
     public function toTesting(){
-        $getSurvey = amberSurvey::with('users','questions','sections')->paginate(10);
+        $getSurvey = amberSurvey::where('user_id', Auth::id())->with('users','questions','sections')->paginate(10);
         return view('Survey.test',[
             'survey'=>$getSurvey
         ]);

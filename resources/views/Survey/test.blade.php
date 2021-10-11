@@ -9,7 +9,7 @@
 	rel="stylesheet">
 
 
-<div class="flex items-center justify-center min-h-screen bg-gray-200">
+<div class="flex justify-center min-h-screen bg-gray-200">
 	<div class="col-span-12">
 		<div class="overflow-auto lg:overflow-visible ">
 			<table class="table text-gray-400 border-separate space-y-6 text-sm">
@@ -84,6 +84,8 @@
                         </tr>
                         
                     @empty
+                    <tr><td colspan="7"><center>No records</center></td></tr>
+
                         
                     @endforelse
                     <tr><td colspan="7">{{$survey->links()}}</td></tr>

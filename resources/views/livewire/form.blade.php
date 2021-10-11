@@ -1,21 +1,21 @@
 <form class="col-span-3 mx-60" wire:submit.prevent="submit">
     @csrf
     {{-- <input hidden name="surveyId" value="{{ $survey->id }}"> --}}
-    <div class="px-10 bg-gray-100 mb-4">
+    <div class="px-10 bg-gray-100 mb-4" id="body">
       <div class="mt-2 mb-4">
           <h1 class="flex-justify">
-              <p class="text-md sm:text-md text-center text-black" for="">Survey Name: <p class="text-xl md:text-xl text-black text-center font-bold text-green-400">{{$surveyName}}</p></p> 
+              <p class="text-md sm:text-md text-center text-black" for="">Survey Name: <p class="text-xl md:text-xl text-center font-bold text-green-400">{{$surveyName}}</p></p> 
           </h1>
       </div>
      
        
         @for ($i=0;$i<$sectionNo;$i++)
-        <div class="col-span-6 md:col-span-6 mt-2 mb-8 bg-white rounded-md py-8 px-4 shadow-md text-md">
+        <div class="col-span-6 md:col-span-6 mt-2 mb-8 rounded-md py-8 bg-white px-4 shadow-md text-md" id="profile">
             <h2 class="text-green-500 text-xl mb-4 py-2">Question:{{ $i+1 }}
             <fieldset class="w-full">
-              <legend class="text-base text-lg md:text-md text-gray-700 w-full mb-2"><input wire:model="question.{{$i}}" class="w-full mt-2 hover:bg-blue-100" placeholder="What would you like to see improved?"></legend>
+              <legend class="text-lg md:text-md text-gray-700 w-full mb-2"><input wire:model="question.{{$i}}" class="w-full mt-2 hover:bg-blue-100" placeholder="What would you like to see improved?"></legend>
               <p class="text-lg md:text-md text-gray-500 w-full">Select the type of question: 
-                <select name="" id="" wire:model="type.{{$i}}" required >
+                <select name="" id="" class="ml-2" wire:model="type.{{$i}}" required >
                   <option selected>--Select Option --</option>
                   <option value="sa">Short Answer</option>
                   <option value="tf">True Or False</option>
@@ -58,7 +58,7 @@
         @endfor
 
         <div class="flex justify-between">
-          <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded-md mt-4 w-1/4" wire:submit="submit">Create</button>
+          <button class="custom-btn btn-3 mb-6" wire:submit="submit"><span> Create </span></button>
           <button class="text-black hover:text-red-500 pr-4" wire:submit="#">Cancel</button>
           
         </div>

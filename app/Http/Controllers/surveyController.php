@@ -26,7 +26,7 @@ class surveyController extends Controller
     }
 
     public function toTesting(){
-        $getSurvey = amberSurvey::all();
+        $getSurvey = amberSurvey::with('users','questions','sections')->paginate(10);
         return view('Survey.test',[
             'survey'=>$getSurvey
         ]);

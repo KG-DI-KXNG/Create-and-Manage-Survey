@@ -53,16 +53,33 @@
                             <td class="p-3 hidden lg:table-cell">
                                 <span class="text-gray-900 rounded-md px-2">{{$item->settings["limit-per-participant"] }}</span>
                             </td>
+                            <form>@csrf
                             <td class="p-3  flex flex-nowrap ">
-                                <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
-                                    <i class="material-icons-outlined text-base">visibility</i>
-                                </a>
+                                
+                                    <button
+                                        formmethod="post"
+                                        formaction="{{route('survey.dosurvey')}}"
+                                        class="text-gray-400 hover:text-gray-100 mr-2"
+                                        name="surveyId"
+                                        value="{{$item->id}}"
+
+                                    
+                                    ><i class="material-icons-outlined text-base">visibility</i></button>
+                                
                                 <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
                                     <i class="material-icons-outlined text-base">edit</i>
                                 </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100  ml-2">
+                                    <button
+                                        formmethod="post"
+                                        formaction="{{ route('survey.delete',['id'=>$item->id]) }}"
+                                        class="text-gray-400 hover:text-gray-100 mr-2"
+                                        name="_method"
+                                        value="DELETE"                                    
+                                    >
+                                
                                     <i class="material-icons-round text-base">delete_outline</i>
-                                </a>
+                                    </button>
+                            </form>
                             </td>
                         </tr>
                         

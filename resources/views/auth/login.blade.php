@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class="flex right-1 top-1  flex-row-reverse lg:p-1 lg:top-2 lg:right-2 absolute z-10 bg-gray-500 opacity-5 ">
+    <div class="flex right-1 top-1  flex-row-reverse lg:p-1 lg:top-2 lg:right-2 absolute z-10 bg-gray-500 opacity-6 rounded-lg ">
       <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
           {{__('SignUp')}}
       </x-responsive-nav-link>

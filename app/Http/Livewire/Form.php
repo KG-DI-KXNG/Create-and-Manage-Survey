@@ -76,7 +76,7 @@ class Form extends Component
             [
                 'name' => $this->surveyName,
                 'settings' => ['limit-per-participant' => 10],
-                'user_id'=>['']
+                'user_id'=>Auth()->id(),
             ]
         );
 

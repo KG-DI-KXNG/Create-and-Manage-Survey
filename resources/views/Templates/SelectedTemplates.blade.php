@@ -61,11 +61,6 @@
             <button type="submit" name="button" class="btn btn-primary my-5">Select Template</button>
           </div>
         </div>
-        <div class="col">
-          <div class="row">
-            <input type="checkbox" name="checkbox">
-          </div>
-        </div>
     </form>
   </body>
 </html>

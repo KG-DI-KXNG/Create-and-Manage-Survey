@@ -47,7 +47,7 @@
 				  Create a Survey
 				</button>
             </a>
-            <a href="{{Route('TempOptions')}}" data-tippy-content="Create a Survey">
+            <a href="#" data-tippy-content="Create a Survey">
 				<button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
 				  Select from Template
 				</button>
@@ -170,7 +170,7 @@
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
                     <a href="{{url('register')}}">
-                    
+
                     <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out  space-x-4">
                     Register
                     </button>
@@ -178,18 +178,18 @@
                     </li>
                     <li class="mr-3">
                     <a href="{{url('login')}}">
-                    
+
                     <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                     Login
                     </button>
                     </a>
                     </li>
-                   
+
                 </ul>
-                
-               
-               
-              
+
+
+
+
             </div>
         </div>
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -250,7 +250,7 @@
             </g>
         </g>
     </svg>
-   
+
     <!--Footer-->
 
     <!-- jQuery if you need it

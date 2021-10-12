@@ -7,6 +7,10 @@
     
       <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
         {{__('Login')}}
+      </x-responsive-nav-link>
+
+      <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+        {{__('Home')}}
     </x-responsive-nav-link>
     </div>
       

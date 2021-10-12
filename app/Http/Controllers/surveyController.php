@@ -17,8 +17,17 @@ class surveyController extends Controller
     /***
      *  to display survey page
      */
-    public function index(){
-        return view('Survey.create');
+    public function index(Request $request){
+        if (! $request->hasValidSignature()) {
+            abort(404);
+        }
+        
+        $survey = amberSurvey::find($request->surveyid);
+        if(Auth::check()){
+            return view('Survey.view',['survey'=>$survey]);
+        }
+        return view('Survey.guest',['survey'=>$survey]);
+
     }
 
     /***

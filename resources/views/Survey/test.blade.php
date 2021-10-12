@@ -110,18 +110,18 @@
 <div class="fixed top-0 right-0 bottom-0 left-0  bg-black bg-opacity-25" >
     <div id="form-div">
         <button type="button" class="absolute top-0 right-0 p-3" onclick="closeModal()" ><i class="fas fa-times w-8"></i></button>
-    <form class="form" id="form1">
+    <form action="{{route('')}}" class="form" id="form1">
         
         <p class="name">
-        <input name="name" type="text" placeholder="Name" id="name" />
+        <input name="name" type="text" class="feedback-input" placeholder="Name" id="name" />
         </p>
         
         <p class="email">
-        <input name="email" type="text" id="email" placeholder="Email" />
+        <input name="email" type="text" class="feedback-input" id="email" placeholder="Email" />
         </p>
         
         <p class="text">
-        <input readonly name="text" id="comment"  value="{{session('url')}}" >
+        <input readonly name="text" class="feedback-input" id="comment"  value="{{session('url')}}" >
         </p>
         
         

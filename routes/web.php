@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\surveyController;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -23,13 +24,13 @@ Route::get('/', function () {
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::post('/dashboard',[HomeController::class, 'show'])->name('survey.create');
-// Route::get('surveycreate', [App\Http\Controllers\surveyController::class, 'index'])->name('survey.create');
-Route::get('surveycreatedemo', [App\Http\Controllers\surveyController::class, 'create'])->name('survey.createdemo');
-Route::post('surveyview/{surveyid?}', [App\Http\Controllers\surveyController::class, 'view'])->name('survey.view');
-Route::post('surveytestdemo', [App\Http\Controllers\surveyController::class, 'testdemo'])->name('survey.dosurvey');
-Route::delete('surveydelete', [App\Http\Controllers\surveyController::class, 'delete'])->name('survey.delete');
-Route::get('surveytotest', [App\Http\Controllers\surveyController::class, 'toTesting'])->name('survey.testing');
-Route::post('surveystore', [App\Http\Controllers\surveyController::class, 'storeSurveyAnswer'])->name('survey.store');
+Route::get('/survey/{surveyid}', [surveyController::class, 'index'])->name('survey');
+Route::get('surveycreatedemo', [surveyController::class, 'create'])->name('survey.createdemo');
+Route::post('surveyview/{surveyid?}', [surveyController::class, 'view'])->name('survey.view');
+Route::post('surveytestdemo', [surveyController::class, 'testdemo'])->name('survey.dosurvey');
+Route::delete('surveydelete', [surveyController::class, 'delete'])->name('survey.delete');
+Route::get('surveytotest', [surveyController::class, 'toTesting'])->name('survey.testing');
+Route::post('surveystore', [surveyController::class, 'storeSurveyAnswer'])->name('survey.store');
 
 // route::get('/trial/{$id?}', function($id = null){
 //     if ($id == null){
@@ -38,11 +39,11 @@ Route::post('surveystore', [App\Http\Controllers\surveyController::class, 'store
 //     $url = URL::signedRoute('survey', ['surveyId' => $id]);
 // });
 
-Route::get('/survey/{surveyid}', function (Request $request) {
-    dd($request);
+// Route::get('/survey/{surveyid}', ['']) {
+//     dd($request);
 
-    // ...
-})->name('survey');
+//     // ...
+// })->name('survey');
 
 // Route::view('live', 'Survey.createForm');
 require __DIR__.'/auth.php';

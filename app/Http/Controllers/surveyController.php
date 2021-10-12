@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use MattDaneshvar\Survey\Http\View\Composers as Vieww;
 use MattDaneshvar\Survey\Models\Survey as amberSurvey;
 use MattDaneshvar\Survey\Models\Entry;
@@ -23,9 +24,12 @@ class surveyController extends Controller
     /***
      * view created survey
      */
-    // public function view(){
-    //     return view('Survey.view');
-    // }
+    public function view(Request $request){
+        $url = URL::signedRoute('survey', ['surveyid' => $request->surveyid]);
+        // dd($url);
+        
+        return \redirect()->route('survey.testing')->with(['url'=>$url]);
+    }
 
 
       /***
@@ -45,15 +49,28 @@ class surveyController extends Controller
 
     public function toTesting(){
         $getSurvey = amberSurvey::where('user_id', Auth::id())->with('users','questions','sections')->paginate(10);
-        return view('Survey.test',[
-            'survey'=>$getSurvey
-        ]);
+
+        $g = amberSurvey::where('user_id', Auth::id())->get();
+        // dd($g);
+        $url = [];
+        for ($i=0;$i<count($g);$i++){
+           $url[$i] = URL::signedRoute('survey', ['surveyid' => $g[0]->id]);
+        }
+        // dd($url);
+
+        return view('Survey.test',['survey'=>$getSurvey,'url'=>$url]);
+    }
+
+    public function publicSurvey(Request $request){
+        // dd($request);
+        $survey = amberSurvey::find($request->surveyId);
+        return view('Survey.view',['survey'=>$survey]);
     }
 
 
 
     /***
-     * 
+     *
      * just for testing function to get surveyID
      */
     public function testdemo(Request $request){
@@ -79,7 +96,7 @@ class surveyController extends Controller
         $one->questions()->create([
             'content' => 'How many cats do you have?',
             'type' => 'number',
-            'rules' => ['numeric', 'min:0']
+            'rules' => ['numeric','min:0']
         ]);
 
         $two = $survey->sections()->create(['name' => 'And here as well']);

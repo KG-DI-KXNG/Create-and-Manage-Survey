@@ -27,7 +27,7 @@
 				<tbody>
                     {{-- {{dd($survey)}} --}}
                     @forelse ($survey as $item)
-                        <tr class="bg-white">
+                        <tr class="bg-white" id="tableRow">
                             <td class="p-3">
                                 <div class="flex align-items-center">
                                     <img class="rounded-full h-12 w-12  object-cover" src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" alt="unsplash image">
@@ -65,8 +65,8 @@
 
                                     
                                     ><i class="material-icons-outlined text-base">visibility</i></button>
-                                
-                                <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
+                                   
+                                <a href="" class="text-gray-400 hover:text-gray-100  mx-2">
                                     <i class="material-icons-outlined text-base">edit</i>
                                 </a>
                                     <button
@@ -79,9 +79,18 @@
                                 
                                     <i class="material-icons-round text-base">delete_outline</i>
                                     </button>
-                            </form>
-                            </td>
-                        </tr>
+                                </td>
+                                
+                                <td id="tableSend"> 
+                                    <x-button
+                                    formmethod="post"
+                                    formaction="{{ route('survey.view',['surveyid'=>$item->id]) }}" 
+                                                              
+                                    >
+                                    {{__('Send')}}
+                                </x-button></td>
+                            </tr>
+                        </form>
                         
                     @empty
                     <tr><td colspan="7"><center>No records</center></td></tr>
@@ -95,6 +104,37 @@
 		</div>
 	</div>
 </div>
+
+@if (session()->has('url'))
+    
+<div class="fixed top-0 right-0 bottom-0 left-0 bg-black bg-opacity-25" onclick="closeModal()">
+    <div id="form-div">
+    <form class="form" id="form1">
+        
+        <p class="name">
+        <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+        </p>
+        
+        <p class="email">
+        <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+        </p>
+        
+        <p class="text">
+        <input readonly name="text" class="validate[required,length[6,300]] feedback-input" value="{{session('url')}}" ></textarea>
+        </p>
+        
+        
+        <div class="submit">
+        <input type="submit" value="SEND" id="button-blue"/>
+        <div class="ease"></div>
+        </div>
+    </form>
+    </div>
+</div>
+   
+@endif
+
+    </div>
 
 
 </x-app-layout>

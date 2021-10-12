@@ -59,9 +59,9 @@
                     </button> 
         
                 
-                    <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full" value="2">
-                      Select from Template
-                    </button> 
+                   <a href="/templates"><button type="button" class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full" value="2">
+                        Select from Template
+                    </button> </a> 
             
                 </div>
             </form>

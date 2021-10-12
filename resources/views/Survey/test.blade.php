@@ -8,6 +8,11 @@
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    @if (session('success'))
+        <div class="alert alert-success"> {{session('success')}} </div>
+    @endif
+
 
 <div class="flex justify-center min-h-screen bg-gray-200">
 	<div class="col-span-12">
@@ -110,18 +115,19 @@
 <div class="fixed top-0 right-0 bottom-0 left-0  bg-black bg-opacity-25" >
     <div id="form-div">
         <button type="button" class="absolute top-0 right-0 p-3" onclick="closeModal()" ><i class="fas fa-times w-8"></i></button>
-    <form action="{{route('')}}" class="form" id="form1">
+        
+    <form action="{{route('mail.survey')}}" method="post" class="form" id="form1">@csrf
         
         <p class="name">
         <input name="name" type="text" class="feedback-input" placeholder="Name" id="name" />
         </p>
         
         <p class="email">
-        <input name="email" type="text" class="feedback-input" id="email" placeholder="Email" />
+        <input name="email" type="text" required class="feedback-input" id="email" placeholder="Email" />
         </p>
         
         <p class="text">
-        <input readonly name="text" class="feedback-input" id="comment"  value="{{session('url')}}" >
+        <input readonly name="url" class="feedback-input" id="comment"  value="{{session('url')}}" >
         </p>
         
         

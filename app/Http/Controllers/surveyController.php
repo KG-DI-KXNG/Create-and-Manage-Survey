@@ -70,7 +70,7 @@ class surveyController extends Controller
 
 
     /***
-     * 
+     *
      * just for testing function to get surveyID
      */
     public function testdemo(Request $request){
@@ -96,7 +96,7 @@ class surveyController extends Controller
         $one->questions()->create([
             'content' => 'How many cats do you have?',
             'type' => 'number',
-            'rules' => ['numeric', 'min:0']
+            'rules' => ['numeric','min:0']
         ]);
 
         $two = $survey->sections()->create(['name' => 'And here as well']);

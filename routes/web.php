@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,24 @@ Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth'])
 Route::post('/dashboard',[HomeController::class, 'show'])->name('survey.create');
 // Route::get('surveycreate', [App\Http\Controllers\surveyController::class, 'index'])->name('survey.create');
 Route::get('surveycreatedemo', [App\Http\Controllers\surveyController::class, 'create'])->name('survey.createdemo');
-// Route::get('surveyview', [App\Http\Controllers\surveyController::class, 'view'])->name('survey.view');
+Route::post('surveyview/{surveyid?}', [App\Http\Controllers\surveyController::class, 'view'])->name('survey.view');
 Route::post('surveytestdemo', [App\Http\Controllers\surveyController::class, 'testdemo'])->name('survey.dosurvey');
 Route::delete('surveydelete', [App\Http\Controllers\surveyController::class, 'delete'])->name('survey.delete');
 Route::get('surveytotest', [App\Http\Controllers\surveyController::class, 'toTesting'])->name('survey.testing');
 Route::post('surveystore', [App\Http\Controllers\surveyController::class, 'storeSurveyAnswer'])->name('survey.store');
+
+// route::get('/trial/{$id?}', function($id = null){
+//     if ($id == null){
+//         return redirect()->back();
+//     }
+//     $url = URL::signedRoute('survey', ['surveyId' => $id]);
+// });
+
+Route::get('/survey/{surveyid}', function (Request $request) {
+    dd($request);
+
+    // ...
+})->name('survey');
 
 // Route::view('live', 'Survey.createForm');
 require __DIR__.'/auth.php';

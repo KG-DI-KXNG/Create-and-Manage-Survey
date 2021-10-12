@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\mailSurvey;
 use App\Http\Controllers\surveyController;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
-
+Route::post('mail.survey', [mailSurvey::class, 'sendmail'])->name('mail.survey');
 Route::post('/dashboard',[HomeController::class, 'show'])->name('survey.create');
 Route::get('/survey/{surveyid}', [surveyController::class, 'index'])->name('survey');
 Route::get('surveycreatedemo', [surveyController::class, 'create'])->name('survey.createdemo');
@@ -49,6 +50,6 @@ Route::post('surveystore', [surveyController::class, 'storeSurveyAnswer'])->name
 require __DIR__.'/auth.php';
 
 //Templates Routes
-Route::get('/Templates', [App\Http\Controllers\Templates::class,'TempOptions'])->name('TempOptions');
+Route::get('/templates', [App\Http\Controllers\Templates::class,'TempOptions'])->name('TempOptions');
 Route::post('/selectTemplates', [App\Http\Controllers\Templates::class,'selectTemplates'])->name('selectTemplates');
 Route::post('/storeTemplateChoice', [App\Http\Controllers\Templates::class,'storeUserTemplate'])->name('storeUserTemplate');

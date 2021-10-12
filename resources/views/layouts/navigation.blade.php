@@ -46,7 +46,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();"
-                                                class="hover:bg-blue-400">
+                                                class="hover:bg-green-500">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>

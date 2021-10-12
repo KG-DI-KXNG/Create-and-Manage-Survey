@@ -5,11 +5,8 @@
     
     <div class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" id="body" style="background-image:url('https://images.unsplash.com/photo-1633150860028-da0c333c6668?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80');">
     
-    
-    
       <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
-        
         <!--Main Col-->
         <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white mx-6 lg:mx-0">
             <x-auth-validation-errors class="" :errors="$errors" />

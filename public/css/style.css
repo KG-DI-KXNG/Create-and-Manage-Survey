@@ -1,0 +1,4 @@
+.radio-btn:checked + *::before, .radio-btn:checked + *::after, .radio-btn:checked{
+  background-color: #1F9D55 !important;
+  /* box-shadow: 0px 0px 0px 2px white inset; */
+}

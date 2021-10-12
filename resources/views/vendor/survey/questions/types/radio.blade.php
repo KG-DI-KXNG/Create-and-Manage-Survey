@@ -1,11 +1,11 @@
 @component('survey::questions.base', compact('question'))
     @foreach($question->options as $option)
         <div class="custom-control custom-radio">
-            <input type="radio"
+            <input class="radio-btn" type="radio"
                    name="{{ $question->key }}"
                    id="{{ $question->key . '-' . Str::slug($option) }}"
                    value="{{ $option }}"
-                   class="custom-control-input"
+                   class="custom-control-input bg-green-500"
                     {{ ($value ?? old($question->key)) == $option ? 'checked' : '' }}
                     {{ ($disabled ?? false) ? 'disabled' : '' }}
             >

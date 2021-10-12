@@ -78,7 +78,7 @@
 
                     /* 3 */
             .btn-3 {
-            background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%); 
+            background: linear-gradient(0deg, rgb(13, 172, 97) 0%, rgb(97, 202, 83) 100%); 
             width: 130px;
             height: 40px;
             line-height: 42px;
@@ -98,7 +98,7 @@
             content: "";
             right: 0;
             top: 0;
-            background: rgba(2,126,251,1);
+            background: rgba(22, 128, 8);
             transition: all 0.3s ease;
             }
             .btn-3:before {
@@ -120,7 +120,7 @@
             width: 100%;
             }
             .btn-3 span:hover{
-            color: rgba(2,126,251,1);
+            color: rgb(13, 172, 97);
             }
             .btn-3 span:before,
             .btn-3 span:after {
@@ -128,7 +128,7 @@
             content: "";
             left: 0;
             bottom: 0;
-            background: rgba(2,126,251,1);
+            background: rgba(87, 196, 73);
             transition: all 0.3s ease;
             }
             .btn-3 span:before {
@@ -329,7 +329,7 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
-            </main>
+            </main> 
         </div>
         <div class="absolute top-2 bg-gray-300 rounded-full right-0 m-2 z-50 my-auto h-auto w-18 p-2">
             <button class="js-change-theme focus:outline-none">🌙</button>

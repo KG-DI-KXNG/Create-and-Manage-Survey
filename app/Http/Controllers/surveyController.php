@@ -8,6 +8,8 @@ use MattDaneshvar\Survey\Http\View\Composers as Vieww;
 use MattDaneshvar\Survey\Models\Survey as amberSurvey;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Answer;
+use MattDaneshvar\Survey\Models\Question;
+use MattDaneshvar\Survey\Models\Section;
 
 class surveyController extends Controller
 {
@@ -21,12 +23,28 @@ class surveyController extends Controller
     /***
      * view created survey
      */
-    public function view(){
-        return view('Survey.view');
+    // public function view(){
+    //     return view('Survey.view');
+    // }
+
+
+      /***
+     * delete created survey
+     */
+    public function delete(Request $request){
+        // dd($request->id);
+        amberSurvey::destroy($request->id);
+        Section::where('survey_id',$request->id)->delete();
+        Question::where('survey_id',$request->id)->delete();
+
+
+
+        return redirect()->route('survey.testing');
     }
 
+
     public function toTesting(){
-        $getSurvey = amberSurvey::all();
+        $getSurvey = amberSurvey::where('user_id', Auth::id())->with('users','questions','sections')->paginate(10);
         return view('Survey.test',[
             'survey'=>$getSurvey
         ]);
@@ -51,7 +69,8 @@ class surveyController extends Controller
         $survey = amberSurvey::create(
             [
                 'name' => 'Test Survey 2',
-                'settings' => ['limit-per-participant' => 10]
+                'settings' => ['limit-per-participant' => 10],
+                'user_id'=>Auth::id(),
             ]
         );
 

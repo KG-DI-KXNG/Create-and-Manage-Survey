@@ -30,6 +30,16 @@ class Form extends Component
     }
     
 
+    // public function onChange($objName)
+    // {
+    //     for($i=0;$i<$this->sectionNo;$i++){
+    //         $this->validateOnly($objName, [
+    //             "type[".$i."]" => 'required',
+    //         ]);
+    //     }
+    // }
+
+
     public function mount($No, $Name)
     {
         $this->sectionNo = $No;
@@ -60,11 +70,13 @@ class Form extends Component
        
         // dd($this->options);
         // $this->validate();
+        // $this->onChange($this->type);
         
         $survey = amberSurvey::create(
             [
                 'name' => $this->surveyName,
-                'settings' => ['limit-per-participant' => 10]
+                'settings' => ['limit-per-participant' => 10],
+                'user_id'=>Auth()->id(),
             ]
         );
 
@@ -84,8 +96,7 @@ class Form extends Component
                 ]);
             }elseif($this->type[$i] == "sa"){
                 $survey->questions()->create([
-                    'content' => $this->question[$i],
-                    
+                    'content' => $this->question[$i],  
                 ]);
             }
    

@@ -59,7 +59,7 @@
 
         <div class="flex justify-between">
           <button class="custom-btn btn-3 mb-6" wire:submit="submit"><span> Create </span></button>
-          <button class="text-black text-lg  hover:text-red-500 pr-4" type="button">Cancel</button>
+          <a href="{{route('dahboard')}}" class="text-black text-lg  hover:text-red-500 pr-4" type="button">Cancel</button>
           
         </div>
       

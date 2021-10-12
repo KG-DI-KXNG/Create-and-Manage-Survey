@@ -11,7 +11,7 @@
 
       <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
         {{__('Home')}}
-    </x-responsive-nav-link>
+      </x-responsive-nav-link>
     </div>
       
     <div class="relative min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover"

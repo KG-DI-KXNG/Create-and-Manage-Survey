@@ -25,6 +25,7 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
 
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -160,43 +161,158 @@
             #tableRow:hover #tableSend {
                 display: table-cell;
             }
-            /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+            @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
+            #feedback-page{
+                text-align:center;
+            }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+            #form-div {
+                background-color:rgba(72,72,72,0.4);
+                padding-left:35px;
+                padding-right:35px;
+                padding-top:35px;
+                padding-bottom:50px;
+                width: 550px;
+                float: left;
+                left: 50%;
+                z-index: 1;
+                position: absolute;
+                margin-top:30px;
+                margin-left: -260px;
+                -moz-border-radius: 7px;
+                -webkit-border-radius: 7px;
+            }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+            .feedback-input {
+                color:#3c3c3c;
+                font-family: Helvetica, Arial, sans-serif;
+                font-weight:500;
+                font-size: 18px;
+                border-radius: 0;
+                line-height: 22px;
+                background-color: #fbfbfb;
+                padding: 13px 13px 13px 54px;
+                margin-bottom: 10px;
+                width:100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+            border: 3px solid rgba(0,0,0,0);
+            }
+
+            .feedback-input:focus{
+                background: #fff;
+                box-shadow: 0;
+                border: 3px solid #3498db;
+                color: #3498db;
+                outline: none;
+            padding: 13px 13px 13px 54px;
+            }
+
+            .focused{
+                color:#30aed6;
+                border:#30aed6 solid 3px;
+            }
+
+            /* Icons ---------------------------------- */
+            #name{
+                background-image: url(https://icons.getbootstrap.com/assets/icons/person.svg);
+                background-size: 30px 30px;
+                background-position: 11px 8px;
+                background-repeat: no-repeat;
+            }
+
+            #name:focus{
+                background-image: url(https://icons.getbootstrap.com/assets/icons/person.svg);
+                background-size: 30px 30px;
+                background-position: 8px 5px;
+            background-position: 11px 8px;
+                background-repeat: no-repeat;
+            }
+
+            #email{
+                background-image: url(https://icons.getbootstrap.com/assets/icons/envelope.svg);
+                background-size: 30px 30px;
+                background-position: 11px 8px;
+                background-repeat: no-repeat;
+            }
+
+            #email:focus{
+                background-image: url(https://icons.getbootstrap.com/assets/icons/envelope.svg);
+                background-size: 30px 30px;
+            background-position: 11px 8px;
+                background-repeat: no-repeat;
+            }
+
+            #comment{
+                background-image: url(https://icons.getbootstrap.com/assets/icons/link.svg);
+                background-size: 30px 30px;
+                background-position: 11px 8px;
+                background-repeat: no-repeat;
+            }
+/* 
+            textarea {
+                width: 100%;
+                height: 150px;
+                line-height: 150%;
+                resize:vertical;
+            } */
+
+            #button-blue{
+                font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                float:left;
+                width: 100%;
+                border: #fbfbfb solid 4px;
+                cursor:pointer;
+                background-color: #00ff62b6;
+                color:white;
+                font-size:24px;
+                padding-top:22px;
+                padding-bottom:22px;
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                transition: all 0.3s;
+            margin-top:-4px;
+            font-weight:700;
+            }
+
+            #button-blue:hover{
+                background-color: rgba(0,0,0,0);
+                color: #00ff62b6;
+            }
+                
+            .submit:hover {
+                color: #00ff62b6;
+            }
+                
+            .ease {
+                width: 0px;
+                height: 74px;
+                background-color: #fbfbfb;
+                -webkit-transition: .3s ease;
+                -moz-transition: .3s ease;
+                -o-transition: .3s ease;
+                -ms-transition: .3s ease;
+                transition: .3s ease;
+            }
+
+            .submit:hover .ease{
+            width:100%;
+            background-color:white;
+            }
+
+            @media only screen and (max-width: 580px) {
+                #form-div{
+                    left: 3%;
+                    margin-right: 3%;
+                    width: 88%;
+                    margin-left: 0;
+                    padding-left: 3%;
+                    padding-right: 3%;
+                }
+            }
 
             
         </style>
@@ -217,7 +333,7 @@
                 {{ $slot }}
             </main> 
         </div>
-        <div class="absolute top-2 bg-gray-00 rounded-full right-0 m-2 z-50 my-auto h-auto w-18 p-2">
+        <div class="absolute top-2 bg-gray-300 rounded-full right-0 m-2 z-50 my-auto h-auto w-18 p-2">
             <button class="js-change-theme focus:outline-none">🌙</button>
           </div>
     </body>

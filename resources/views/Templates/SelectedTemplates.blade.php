@@ -22,49 +22,46 @@
     @php
     $count=0
     @endphp
-    <form action="{{Route('storeUserTemplate')}}" method="post" class="flex-justify-center bg-white pl-4 space-y-6 col-span-1">
+    <form action="{{Route('storeUserTemplate')}}" method="post" class="flex-justify-center bg-white my-4 col-span-1">
       @csrf
+      <div class="p-8 space-y-6">
         <div class="col">
-          <div class="row">
-            <input type="text" name="survey" class="text-center form-control"  value="Survey Name">
-          </div>
-        </div>
-        @foreach($template['results'] as $temp)
-            @if($type=='multiple')
-              <div class="col-span-1">
-                <div class="row">
-                  <input type="text" name="{{'question[]'}}" value="{{preg_replace("/&|;|quot|#039|;s|&#039;s/"," " ,$temp['question'])}}" class="form-control text-lg md:text-md w-full">
-                  <br>
-                  <input type="radio" name="{{'answer'}}" value="{{$temp['correct_answer']}}">
-                  <label class="text-lg md:text-md w-full" for="">{{$temp['correct_answer']}}</label>
-                  @foreach($temp['incorrect_answers'] as $answer)
-                    <input type="radio" name="{{'answer[]'}}" value="{{$answer}}">
-                    <label class="text-lg md:text-md w-full" for="">{{$answer}}</label>
-                  @endforeach
-                </div>
-              </div>
-            @else
-              <div class="col justify-start">
-                <div class="row">
-                  <input type="text" name="{{'question[]'}}" value="{{preg_replace("/&|;|quot|#039|;s|&#039;s/"," " ,$temp['question'])}}"class="form-control">
-                  <br>
-                  <input type="radio" name="{{'answer[]'}}" value="{{$temp['correct_answer']}}">
-                  <label class="text-lg md:text-md w-full" for="">{{$temp['correct_answer']}}</label>
-                  <input type="radio" name="{{'answer[]'}}" value="{{$temp['incorrect_answers'][0]}}">
-                  <label class="text-lg md:text-md w-full" for="">{{$temp['incorrect_answers'][0]}}</label>
-                </div>
-              </div>
-            @endif
-              @php
-              $count++;
-              @endphp
-          @endforeach
-        <hr>
-        <div class="flex justify-between">
-          <button class="custom-btn btn-3 mb-6" type="submit"><span> Submit </span></button>
-          <a href="{{route('dashboard')}}" class="text-black text-lg  hover:text-red-500 pr-4" type="button">Cancel</button>
-          
-        </div>
+          <input type="text" name="survey" class="text-center form-control"  value="Survey Name">
+      </div>
+      @foreach($template['results'] as $temp)
+          @if($type=='multiple')
+            <div class="col-span-1">
+                <input type="text" name="{{'question[]'}}" value="{{preg_replace("/&|;|quot|#039|;s|&#039;s/"," " ,$temp['question'])}}" class="form-control text-lg md:text-md w-full">
+                <br>
+                <input type="radio" name="{{'answer'}}" value="{{$temp['correct_answer']}}">
+                <label class="text-lg md:text-md w-full" for="">{{$temp['correct_answer']}}</label><br>
+                @foreach($temp['incorrect_answers'] as $answer)
+                  <input type="radio" name="{{'answer[]'}}" value="{{$answer}}">
+                  <label class="text-lg md:text-md w-full" for="">{{$answer}}</label><br>
+                @endforeach
+            </div>
+          @else
+            <div class="col justify-start">
+                <input type="text" name="{{'question[]'}}" value="{{preg_replace("/&|;|quot|#039|;s|&#039;s/"," " ,$temp['question'])}}"class="form-control">
+                <br>
+                <input type="radio" name="{{'answer[]'}}" value="{{$temp['correct_answer']}}">
+                <label class="text-lg md:text-md w-full" for="">{{$temp['correct_answer']}}</label><br>
+                <input type="radio" name="{{'answer[]'}}" value="{{$temp['incorrect_answers'][0]}}">
+                <label class="text-lg md:text-md w-full" for="">{{$temp['incorrect_answers'][0]}}</label><br>
+            </div>
+          @endif
+            @php
+            $count++;
+            @endphp
+        @endforeach
+      <hr>
+      <div class="flex justify-between">
+        <button class="custom-btn btn-3 mb-6" type="submit"><span> Submit </span></button>
+        <a href="{{route('dashboard')}}" class="text-black text-lg  hover:text-red-500 pr-4" type="button">Cancel</button>
+        
+      </div>
+      </div>
+
           {{-- <div class="">
             <button type="submit" name="button" class="btn btn-primary my-5">Select Template</button>
         </div> --}}

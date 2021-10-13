@@ -8,7 +8,7 @@
 
     <style>
 
-        body {margin-top:5rem; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
+        body {margin-top:5rem; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;}a{text-decoration: none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
 
     </style>
 
@@ -100,7 +100,7 @@ div.preheader
           </tr>
           <tr>
                 <td class="custom-btn btn-3 mb-6">
-                  <a href="{!! $msg !!}" class="underline-none pl-2">Do Survey!</a>
+                  <a href="{!! $msg !!}" class="underline-none pl-2"><span> Do Survey! </span></a>
                 </td>
                 </tr>
          </table>

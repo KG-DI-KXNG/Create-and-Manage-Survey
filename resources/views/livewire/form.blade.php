@@ -62,6 +62,5 @@
           <a href="{{route('dashboard')}}" class="text-black text-lg  hover:text-red-500 pr-4" type="button">Cancel</button>
           
         </div>
-      
     </div>
 </form>

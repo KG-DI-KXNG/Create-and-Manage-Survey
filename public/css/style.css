@@ -140,6 +140,7 @@ width: 100%;
   position: absolute;
   margin-top:30px;
   margin-left: -260px;
+  border-radius: 7px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
 }
@@ -165,8 +166,8 @@ border: 3px solid rgba(0,0,0,0);
 .feedback-input:focus{
   background: #fff;
   box-shadow: 0;
-  border: 3px solid #3498db;
-  color: #3498db;
+  border: 3px solid rgb(68, 197, 51);
+  color: black;
   outline: none;
 padding: 13px 13px 13px 54px;
 }
@@ -177,18 +178,10 @@ padding: 13px 13px 13px 54px;
 }
 
 /* Icons ---------------------------------- */
-#name{
+#name, #name:focus{
   background-image: url(https://icons.getbootstrap.com/assets/icons/person.svg);
   background-size: 30px 30px;
   background-position: 11px 8px;
-  background-repeat: no-repeat;
-}
-
-#name:focus{
-  background-image: url(https://icons.getbootstrap.com/assets/icons/person.svg);
-  background-size: 30px 30px;
-  background-position: 8px 5px;
-background-position: 11px 8px;
   background-repeat: no-repeat;
 }
 
@@ -199,20 +192,12 @@ background-position: 11px 8px;
   background-repeat: no-repeat;
 }
 
-/* #email:focus{
-  background-image: url(https://icons.getbootstrap.com/assets/icons/envelope.svg);
-  background-size: 30px 30px;
-background-position: 11px 8px;
-  background-repeat: no-repeat;
-} */
-
 #urlLink, #urlLink:focus{
   background-image: url(https://icons.getbootstrap.com/assets/icons/link.svg);
   background-size: 30px 30px;
   background-position: 11px 8px;
   background-repeat: no-repeat;
 }
-
 
 #button-blue{
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;

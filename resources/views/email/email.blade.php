@@ -100,31 +100,11 @@ div.preheader
            </td>
           </tr>
           <tr>
-                 <td class="button" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 16px; padding-top: 26px;" width="640" align="left">
-                  <a href="{!! $msg !!}"  style="background: #0c99d5; color: #fff; text-decoration: none; border: 14px solid #0c99d5; border-left-width: 50px; border-right-width: 50px; text-transform: uppercase; display: inline-block;">
+                <td class="button" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 16px; padding-top: 26px;" width="640" align="left">
+                  <a href="{{--{!! $msg !!}--}}"  style="background: #0c99d5; color: #fff; text-decoration: none; border: 14px solid #0c99d5; border-left-width: 50px; border-right-width: 50px; text-transform: uppercase; display: inline-block;">
                    Do Survey!
                   </a>
-
-                  <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">Welcome to flexible form designs!</div>
-                                  <div class="card-body">
-                                   @if (session('resent'))
-                                        <div class="alert alert-success" role="alert">
-                                           {{ __('A fresh mail has been sent to your email address.') }}
-                                       </div>
-                                   @endif
-                                    <h1>Full Name: <b>{!! $fullname !!}</b> </h1><br>
-                                    <h2>link: <b> <a href="">Click me to complete Survey</a></b></h2><br>
-                                    <h2>Date: </h2>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                </div>
-           </td>
+                </td>
                 </tr>
          </table>
         </td>

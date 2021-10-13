@@ -128,7 +128,7 @@ class surveyController extends Controller
     {
 
         
-        $survey = amberSurvey::find($request->surveyId)->first();
+        $survey = amberSurvey::findorfail($request->surveyId)->first();
         // dd($survey->rules);
 
             $answers = $this->validate($request, $survey->rules);
@@ -137,7 +137,7 @@ class surveyController extends Controller
             }else{
                 (new Entry)->for($survey)->fromArray($answers)->push();
             }
-            return redirect()->route('home')->with('');
+            return redirect()->route('home')->with('success','Successfully completed survey. Thanks for your participation!');
             
         // $survey = amberSurvey::where('id','=',$request->surveyId)->first();
         // $count = count($request->request->all());

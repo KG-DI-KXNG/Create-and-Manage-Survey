@@ -50,7 +50,6 @@ div.preheader
    <table width="100%" cellspacing="0" cellpadding="0">
     <tr>
      <td class="header header--left" style="padding: 20px 10px;" align="left">
-      {{-- <a href="https://click.e.mozilla.org/?qs=4efe345e8852f56c113edb983fa4611aa6d70ef7c486dbc97d2c4b21e7f93896b79c356bd48feb8ed0d35b70ed9a18c98f4d7d28197a82dc" ><img class="header__logo" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/firefox-logo-2x-sept2017.png" alt="Firefox" style="display: block; border: 0;" width="158" height="59"></a> --}}
      </td>
     </tr>
    </table>
@@ -101,7 +100,7 @@ div.preheader
           </tr>
           <tr>
                 <td class="custom-btn btn-3 mb-6">
-                  <a href="{{--{!! $msg !!}--}}" class="underline-none pl-2">Do Survey!</a>
+                  <a href="{!! $msg !!}" class="underline-none pl-2">Do Survey!</a>
                 </td>
                 </tr>
          </table>

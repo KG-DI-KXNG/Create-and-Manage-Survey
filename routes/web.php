@@ -37,7 +37,6 @@ Route::middleware('auth')->group(function(){
 Route::post('surveystore', [surveyController::class, 'storeSurveyAnswer'])->name('survey.store');
 Route::get('/survey/{surveyid}', [surveyController::class, 'index'])->name('survey');
 require __DIR__.'/auth.php';
-route::view('email','email.email');
 
 //Templates Routes
 Route::get('/templates', [App\Http\Controllers\Templates::class,'TempOptions'])->name('TempOptions');

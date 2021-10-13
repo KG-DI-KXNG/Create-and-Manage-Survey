@@ -8,6 +8,10 @@
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
 
+    <!-- font Awesome 6 -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+
+    <!-- bootstrap alert/modal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     @if (session('success'))
         <div class="alert alert-success"> {{session('success')}} </div>
@@ -126,8 +130,9 @@
         </p>
         
         <p class="text">
-        <input readonly name="url" class="feedback-input" id="comment"  value="{{session('surveylink')}}" >
+        <input  name="url" class="feedback-input" id="urlLink"  value="{{session('surveylink')}}" >
         </p>
+        <span class="absolute -mt-20  right-9 py-0.5 shadow-sm bg-gray-50" id="copySpan"><button type="button" onclick="copyToClipboard()" id="copyBtn"><i class="fa-solid fa-clipboard fa-5x px-4 py-3"></i></button></span>
         
         
         <div class="submit">

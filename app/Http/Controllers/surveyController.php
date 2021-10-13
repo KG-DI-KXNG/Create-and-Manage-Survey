@@ -23,7 +23,7 @@ class surveyController extends Controller
             abort(404);
         }
         
-        $survey = amberSurvey::find($request->surveyid);
+        $survey = amberSurvey::findOrFail($request->surveyid);
         if(Auth::check()){
             return view('Survey.view',['survey'=>$survey]);
         }
@@ -128,7 +128,7 @@ class surveyController extends Controller
     {
 
         
-        $survey = amberSurvey::findorfail($request->surveyId)->first();
+        $survey = amberSurvey::findOrFail($request->surveyId)->first();
         // dd($survey->rules);
 
             $answers = $this->validate($request, $survey->rules);

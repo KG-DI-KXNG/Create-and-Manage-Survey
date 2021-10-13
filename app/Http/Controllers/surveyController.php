@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
@@ -37,7 +38,7 @@ class surveyController extends Controller
         $url = URL::signedRoute('survey', ['surveyid' => $request->surveyid]);
         // dd($url);
         
-        return \redirect()->route('survey.testing')->with(['url'=>$url]);
+        return \redirect()->route('survey.testing')->with(['surveylink'=>$url]);
     }
 
 
@@ -126,26 +127,33 @@ class surveyController extends Controller
     public function storeSurveyAnswer(Request $request)
     {
 
-        if ($request->has('cancel')) {
-            return redirect()->route('survey.testing');
-        }
+        
+        $survey = amberSurvey::find($request->surveyId)->first();
+        // dd($survey->rules);
 
-        dd($request);
-        $survey = amberSurvey::where('id','=',$request->surveyId)->first();
-        $count = count($request->request->all());
-        $answers = [];
-        $count1 = 0;
-        foreach ($request->request->all() as $key => $value) {
-            if ($count1 != 0) {
-                if ($count1 != 1) {
-                    $answers[$key] = $value;
-                }
+            $answers = $this->validate($request, $survey->rules);
+            if(Auth::check()){
+                (new Entry)->for($survey)->by(User::find(Auth::id()))->fromArray($answers)->push();
+            }else{
+                (new Entry)->for($survey)->fromArray($answers)->push();
             }
-            ++$count1;
-        }
-        // dd($answers);
-        $user = Auth::user();
+            return redirect()->route('home')->with('');
+            
+        // $survey = amberSurvey::where('id','=',$request->surveyId)->first();
+        // $count = count($request->request->all());
+        // $answers = [];
+        // $count1 = 0;
+        // foreach ($request->request->all() as $key => $value) {
+        //     if ($count1 != 0) {
+        //         if ($count1 != 1) {
+        //             $answers[$key] = $value;
+        //         }
+        //     }
+        //     ++$count1;
+        // }
+        // // dd($answers);
+        // $user = Auth::user();
 
-        (new Entry)->for($survey)->by($user)->fromArray($answers)->push();
+        // (new Entry)->for($survey)->by($user)->fromArray($answers)->push();
     }
 }

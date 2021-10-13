@@ -18,8 +18,9 @@
                 <select name="" id="" class="ml-2" wire:model="type.{{$i}}" required >
                   <option selected>--Select Option --</option>
                   <option value="sa">Short Answer</option>
-                  <option value="tf">True Or False</option>
+                  <option value="tf">True/False</option>
                   <option value="mc">Multiple Choices</option>
+                  <option value="yn">Yes/No</option>
                 </select></p>
               
                 @if ($type[$i] === "mc")
@@ -41,7 +42,6 @@
                     @endif
               
                 @if ($type[$i] === "sa")
-                
                 @endif
               
                 @if ($type[$i] === "tf")
@@ -50,6 +50,14 @@
                       <br>
                       <input name="{{$type[$i].$i}}" id="{{$type[$i].$i}}" value="false" type="radio" wire:model="options.{{$i}}.1.value">
                       <label for="{{$type[$i].$i}}" class="font-medium text-gray-700">False</label>
+                      <br>
+                @endif
+                @if ($type[$i] === "yn")
+                  <input name="{{$type[$i].$i}}" id="{{$type[$i].$i}}" value="yes" type="radio" wire:model="options.{{$i}}.1.value">
+                      <label for="{{$type[$i].$i}}" class="font-medium text-gray-700">Yes</label>
+                      <br>
+                      <input name="{{$type[$i].$i}}" id="{{$type[$i].$i}}" value="no" type="radio" wire:model="options.{{$i}}.1.value">
+                      <label for="{{$type[$i].$i}}" class="font-medium text-gray-700">No</label>
                       <br>
                 @endif
               

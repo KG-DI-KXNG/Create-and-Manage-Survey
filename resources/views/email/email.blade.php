@@ -4,16 +4,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>Mozilla</title>
+    <title>{{ config('app.name', 'Survey') }}</title>
 
     <style>
 
-        body {margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } a, a:link{color:#2A5DB0; text-decoration: underline;} table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
+        body {margin-top:5rem; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
 
     </style>
 
     <style>
- .scalable-image img{max-width:100% !important;height:auto !important}.button a{transition:background-color .25s, border-color .25s}.button a:hover{background-color:#e1e1e1 !important;border-color:#0976a5 !important}@media only screen and (max-width: 400px){.preheader{font-size:12px !important;text-align:center !important}.header--white{text-align:center}.header--white .header__logo{display:block;margin:0 auto;width:118px !important;height:auto !important}.header--left .header__logo{display:block;width:118px !important;height:auto !important}}@media screen and (-webkit-device-pixel-ratio), screen and (-moz-device-pixel-ratio){.sub-story__image,.sub-story__content{display:block
+      .scalable-image img {max-width:100% !important;height:auto !important}.custom-btn {width: 130px; text-align: center;height: 40px;color: #fff;border-radius: 5px;padding: 10px 25px;font-family: 'Lato', sans-serif;font-weight: 500;background: transparent;cursor: pointer;transition: all 0.3s ease;position: relative;display: inline-block;box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),7px 7px 20px 0px rgba(0,0,0,.1),4px 4px 5px 0px rgba(0,0,0,.1);outline: none;}.btn-3 {background: linear-gradient(0deg, rgb(13, 172, 97) 0%, rgb(97, 202, 83) 100%);width: 130px;height: 40px;line-height: 42px;padding: 0;border: none;}.btn-3 span {position: relative;display: block;width: 100%;height: 100%;}.btn-3:before,.btn-3:after {position: absolute;content: "";right: 0;top: 0;background: rgba(22, 128, 8);transition: all 0.3s ease;}.btn-3:before {height: 0%;width: 2px;}.btn-3:after {width: 0%;height: 2px;}.btn-3:hover{background: transparent;box-shadow: none;}.btn-3:hover:before {height: 100%;}.btn-3:hover:after {width: 100%;}.btn-3 span:hover{color: rgb(13, 172, 97);}.btn-3 span:before,.btn-3 span:after {position: absolute;content: "";left: 0;bottom: 0;background: rgba(87, 196, 73);transition: all 0.3s ease;}.btn-3 span:before {width: 2px;height: 0%;}.btn-3 span:after {width: 0%;height: 2px;}.btn-3 span:hover:before {height: 100%;}.btn-3 span:hover:after {width: 100%;}.header--white{text-align:center}.header--white .header__logo{display:block;margin:0 auto;width:118px !important;height:auto !important}.header--left .header__logo{display:block;width:118px !important;height:auto !important}}@media screen and (-webkit-device-pixel-ratio), screen and (-moz-device-pixel-ratio){.sub-story__image,.sub-story__content{display:block
  !important}.sub-story__image{float:left !important;width:200px}.sub-story__content{margin-top:30px !important;margin-left:200px !important}}@media only screen and (max-width: 550px){.sub-story__inner{padding-left:30px !important}.sub-story__image,.sub-story__content{margin:0 auto !important;float:none !important;text-align:center}.sub-story .button{padding-left:0 !important}}@media only screen and (max-width: 400px){.featured-story--top table,.featured-story--top td{text-align:left}.featured-story--top__heading td,.sub-story__heading td{font-size:18px !important}.featured-story--bottom:nth-child(2) .featured-story--bottom__inner{padding-top:10px
  !important}.featured-story--bottom__inner{padding-top:20px !important}.featured-story--bottom__heading td{font-size:28px !important;line-height:32px !important}.featured-story__copy td,.sub-story__copy td{font-size:14px !important;line-height:20px !important}.sub-story table,.sub-story td{text-align:center}.sub-story__hero img{width:100px !important;margin:0 auto}}@media only screen and (max-width: 400px){.footer td{font-size:12px !important;line-height:16px !important}}
      @media screen and (max-width:600px) {
@@ -50,7 +50,7 @@ div.preheader
    <table width="100%" cellspacing="0" cellpadding="0">
     <tr>
      <td class="header header--left" style="padding: 20px 10px;" align="left">
-      <a href="https://click.e.mozilla.org/?qs=4efe345e8852f56c113edb983fa4611aa6d70ef7c486dbc97d2c4b21e7f93896b79c356bd48feb8ed0d35b70ed9a18c98f4d7d28197a82dc" ><img class="header__logo" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/firefox-logo-2x-sept2017.png" alt="Firefox" style="display: block; border: 0;" width="158" height="59"></a>
+      {{-- <a href="https://click.e.mozilla.org/?qs=4efe345e8852f56c113edb983fa4611aa6d70ef7c486dbc97d2c4b21e7f93896b79c356bd48feb8ed0d35b70ed9a18c98f4d7d28197a82dc" ><img class="header__logo" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/firefox-logo-2x-sept2017.png" alt="Firefox" style="display: block; border: 0;" width="158" height="59"></a> --}}
      </td>
     </tr>
    </table>
@@ -100,10 +100,8 @@ div.preheader
            </td>
           </tr>
           <tr>
-                <td class="button" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 16px; padding-top: 26px;" width="640" align="left">
-                  <a href="{{--{!! $msg !!}--}}"  style="background: #0c99d5; color: #fff; text-decoration: none; border: 14px solid #0c99d5; border-left-width: 50px; border-right-width: 50px; text-transform: uppercase; display: inline-block;">
-                   Do Survey!
-                  </a>
+                <td class="custom-btn btn-3 mb-6">
+                  <a href="{{--{!! $msg !!}--}}" class="underline-none pl-2">Do Survey!</a>
                 </td>
                 </tr>
          </table>

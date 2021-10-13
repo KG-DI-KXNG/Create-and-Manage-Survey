@@ -75,7 +75,7 @@ class Form extends Component
         $survey = amberSurvey::create(
             [
                 'name' => $this->surveyName,
-                'settings' => ['limit-per-participant' => 10],
+                'settings' => ['accept-guest-entries' => true],
                 'user_id'=>Auth()->id(),
             ]
         );
@@ -92,7 +92,13 @@ class Form extends Component
                 $survey->questions()->create([
                     'content' => $this->question[$i],
                     'type' => 'radio',
-                    'options' => ['true', 'false']
+                    'options' => ['True', 'False']
+                ]);
+            }elseif($this->type[$i] == "yn"){
+                $survey->questions()->create([
+                    'content' => $this->question[$i],
+                    'type' => 'radio',
+                    'options' => ['Yes', 'No']
                 ]);
             }elseif($this->type[$i] == "sa"){
                 $survey->questions()->create([

@@ -25,7 +25,7 @@
 						<th class="p-3 text-left">Date Created</th>
 						<th class="p-3 text-left hidden md:table-cell">Question Amount</th>
 						<th class="p-3 text-left hidden md:table-cell">Status</th>
-						<th class="p-3 text-left hidden md:hidden lg:table-cell">Allowed Participant</th>
+						{{-- <th class="p-3 text-left hidden md:hidden lg:table-cell">Allowed Participant</th> --}}
 						<th class="p-3 text-left">Action</th>
 					</tr>
 				</thead>
@@ -55,9 +55,7 @@
                             <td class="p-3 hidden md:table-cell">
                                 <span class="bg-green-400 text-gray-50 rounded-md px-2">available</span>
                             </td>
-                            <td class="p-3 hidden lg:table-cell">
-                                <span class="text-gray-900 rounded-md px-2">{{$item->settings["limit-per-participant"] }}</span>
-                            </td>
+                            
                             <form>@csrf
                             <td class="p-3  flex flex-nowrap ">
                                 
@@ -110,7 +108,8 @@
 	</div>
 </div>
 
-@if (session()->has('url'))
+@if (session()->has('surveylink'))
+
     
 <div class="fixed top-0 right-0 bottom-0 left-0  bg-black bg-opacity-25" >
     <div id="form-div">
@@ -127,7 +126,7 @@
         </p>
         
         <p class="text">
-        <input readonly name="url" class="feedback-input" id="comment"  value="{{session('url')}}" >
+        <input readonly name="url" class="feedback-input" id="comment"  value="{{session('surveylink')}}" >
         </p>
         
         

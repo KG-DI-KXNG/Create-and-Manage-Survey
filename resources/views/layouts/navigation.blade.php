@@ -21,6 +21,11 @@
                         {{ __('View Survey') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                  <x-nav-link :href="route('survey.testing')" :active="request()->routeIs('survey.testing')">
+                      {{ __('View Response') }}
+                  </x-nav-link>
+               </div>
             </div>
 
             <!-- Settings Dropdown -->

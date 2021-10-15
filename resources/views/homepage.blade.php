@@ -272,7 +272,8 @@
       </section>
     
       <footer class="center bg-dark">
-        <p>Traversy Media &copy; 2018</p>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="86e22402-a952-4ea3-9bce-5f41be3badf4" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+        <p>KGB Co. ltd. &copy; 2021</p>
       </footer>
 
     <!--Footer-->

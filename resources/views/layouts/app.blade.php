@@ -54,7 +54,7 @@
             </main> 
         </div>
         <div class="absolute top-2 bg-gray-300 rounded-full right-0 m-2 z-50 my-auto h-auto w-18 p-2">
-            <button class="js-change-theme focus:outline-none">🌙</button>
+            <button type="button" class="js-change-theme focus:outline-none">🌙</button>
           </div>
     </body>
     @livewireScripts

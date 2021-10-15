@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 })->name('home');
 
 Route::middleware('auth')->group(function(){
@@ -42,3 +42,5 @@ require __DIR__.'/auth.php';
 Route::get('/templates', [App\Http\Controllers\Templates::class,'TempOptions'])->name('TempOptions');
 Route::post('/selectTemplates', [App\Http\Controllers\Templates::class,'selectTemplates'])->name('selectTemplates');
 Route::post('/storeTemplateChoice', [App\Http\Controllers\Templates::class,'storeUserTemplate'])->name('storeUserTemplate');
+
+Route::view('home','homepage');

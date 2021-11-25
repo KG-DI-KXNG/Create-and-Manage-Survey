@@ -12,6 +12,7 @@ use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Answer;
 use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Section;
+use Illuminate\Support\Facades\Validator;
 
 class surveyController extends Controller
 {
@@ -126,10 +127,20 @@ class surveyController extends Controller
 
     public function storeSurveyAnswer(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha'
+        ],[
+            'required' => 'Please verify that you are not a robot.',
+            'captcha' => 'Captcha error! try again later or contact site admin.',
+        ]);
 
+        if ($validator->fails()) {
+            return redirect('surveytestdemo',307)
+                        ->withErrors($validator);
+        }
         
         $survey = amberSurvey::findOrFail($request->surveyId)->first();
-        // dd($survey->rules);
+        dd($survey->rules);
 
             $answers = $this->validate($request, $survey->rules);
             if(Auth::check()){

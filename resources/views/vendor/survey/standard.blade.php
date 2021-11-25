@@ -30,8 +30,21 @@
                 @include('survey::questions.single')
             @endforeach
 
+            @if ($eligible)
+                <div>
+                {!! NoCaptcha::renderJs() !!}
+                {!! NoCaptcha::display() !!}
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
+                </div>  
+            @endif  
+
             <div class="flex justify-between mt-4">
               @if($eligible)
+                
                 <button class="custom-btn btn-3 mb-6" wire:submit="submit"><span> Submit </span></button>
               @endif
                 <button class="text-black text-lg hover:text-red-500 pr-4 mb-6 align-top" type="button">Clear Form</button>
